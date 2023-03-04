@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList", "ToDoList\ToDoList.csproj", "{252849B9-4F8D-400E-8B99-27CA727BF051}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC357BB9-237A-48B9-B15D-2FF62FCF5333}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Tests", "ToDoList.Tests\ToDoList.Tests.csproj", "{EACEC249-1316-40D3-A749-877616FB2879}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{252849B9-4F8D-400E-8B99-27CA727BF051}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{252849B9-4F8D-400E-8B99-27CA727BF051}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{252849B9-4F8D-400E-8B99-27CA727BF051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{252849B9-4F8D-400E-8B99-27CA727BF051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACEC249-1316-40D3-A749-877616FB2879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACEC249-1316-40D3-A749-877616FB2879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACEC249-1316-40D3-A749-877616FB2879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACEC249-1316-40D3-A749-877616FB2879}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C27D6BA-B4F4-4D2C-B9F9-4B08CA86D85C}
+	EndGlobalSection
+EndGlobal

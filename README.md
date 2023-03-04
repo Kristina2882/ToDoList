@@ -22,3 +22,5 @@ Please make following replacements:
 [YOUR-DB-NAME] with the name of your database.
 
 Best regards, Kristina
+
+P.S. Thanks pexels.com for beautiful sea picture I've used as background for my app.

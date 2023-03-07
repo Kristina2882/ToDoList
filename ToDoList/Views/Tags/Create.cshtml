@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model ToDoList.Models.Tag
+
+<h3>Add a new tag</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model =>model.Title)
+    <input type="submit" value="Add"/>
+
+    <hr/>
+    <h6>@Html.ActionLink("See all tags", "Index")</h6>
+}

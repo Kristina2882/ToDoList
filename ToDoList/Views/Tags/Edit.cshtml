@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@model ToDoList.Models.Tag
+
+<h2><b>Edit</b></h2>
+<h3>@Html.DisplayFor(model => model.Title)</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.TagId)
+    @Html.LabelFor(model => model.Title)
+    @Html.EditorFor(model => model.Title)
+    <input type="submit" value="Save"/>
+}
+
+<hr/>
+<h6>@Html.ActionLink("Back to list", "Index")</h6>

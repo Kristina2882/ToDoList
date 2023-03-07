@@ -4,6 +4,7 @@
 
 @model ToDoList.Models.Category
 @using ToDoList.Models
+@using System.Collections.Generic
 
 <h2><b>Category's details</b></h2>
 
@@ -19,13 +20,31 @@ else
     <h3><b>To-dos</b></h3>
    @foreach (Item item in Model.Items)
     {
-        <h3>@Html.ActionLink($"{item.Description}", "Details", "Items", new {id = item.ItemId})</h3>
+        string tags = "";
+
+        @if(item.JoinEntities.Count == 0)
+        {
+            tags = "This To-do doesn't have any tags";
+        }
+        else
+        {
+            List<string> tagList = new List<string>();
+                @foreach(ItemTag join in item.JoinEntities)
+            {
+                tagList.Add(join.Tag.Title);
+            }
+
+            tags = String.Join(", ", tagList);
+        }
+
+        <h3>@item.Description | Tags: @tags</h3>
     }
 }
 <hr/>
 
 <h6>@Html.ActionLink("Edit category", "Edit", new {id = Model.CategoryId })
     @Html.ActionLink("Delete category", "Delete", new {id = Model.CategoryId })
-    @Html.ActionLink("Back to list", "Index")</h6>
+    @Html.ActionLink("Back to list", "Index")
+    @Html.ActionLink("Add new To-do", "Create", "Items")</h6>
 
 

@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@using ToDoList.Models
+@model ToDoList.Models.Tag
+
+<h2><b>Tag details</b></h2>
+
+<h3>@Html.DisplayFor(model => model.Title)</h3>
+
+@if(Model.JoinEntities.Count == 0)
+{
+    <h3>This tag doesn't belong to any item</h3>
+}
+else
+{
+    <h4><b>The items with this tag</b></h4>
+    @foreach(ItemTag join in Model.JoinEntities)
+    {
+        <h4>@join.Item.Description</h4>
+        @using (Html.BeginForm("DeleteJoin", "Tags"))
+        {
+            @Html.Hidden("joinId", join.ItemTagId)
+            <input type="submit" value="Delete"/>
+        }
+    }
+}
+<hr/>
+
+<h6>@Html.ActionLink("Back to list", "Index")
+@Html.ActionLink("Add a To-do", "AddItem", new {id = Model.TagId})
+@Html.ActionLink("Edit a tag", "Edit",  new {id = Model.TagId})
+@Html.ActionLink("Delete a tag", "Delete", new {id = Model.TagId})</h6>

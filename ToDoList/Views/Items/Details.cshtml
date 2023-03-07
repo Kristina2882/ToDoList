@@ -2,17 +2,38 @@
     Layout = "_Layout";
 }
 
+@using ToDoList.Models
 @model ToDoList.Models.Item
 
 <h2><b>To-do details</b></h2>
-
-<hr/>
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 <h4>Category: @Html.DisplayFor(model => model.Category.Name)</h4>
 
+@if(Model.JoinEntities.Count == 0)
+{
+    <h3>This To-do doesn't have tags</h3>
+}
+
+else
+{
+    <h4><b>Tags:</b></h4>
+    @foreach(ItemTag join in Model.JoinEntities)
+    {
+        <h4>@join.Tag.Title</h4>
+        @using(Html.BeginForm("DeleteJoin", "Items"))
+        {
+            @Html.Hidden("joinId", join.ItemTagId)
+            <input type="submit" value="Delete"/>
+        }
+        
+    }
+}
+ 
 <hr/>
 <h6>@Html.ActionLink("Edit To-do", "Edit", new {id = Model.ItemId })
 
 @Html.ActionLink("Delete To-do", "Delete", new {id = Model.ItemId })
 
-@Html.ActionLink("Back to list", "Index")</h6>
+@Html.ActionLink("Back to list", "Index")
+    @Html.ActionLink("Add a tag", "AddTag", new { id = Model.ItemId })
+</h6>

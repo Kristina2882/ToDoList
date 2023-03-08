@@ -8,6 +8,10 @@
 <h2><b>To-do details</b></h2>
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 <h4>Category: @Html.DisplayFor(model => model.Category.Name)</h4>
+@{
+    string itemDueDate = Model.DueDate.ToString("MMM-dd-yyyy");
+}
+<h4>Due date: @Html.DisplayFor(model => itemDueDate)</h4>
 
 
 @if(Model.JoinEntities.Count == 0)

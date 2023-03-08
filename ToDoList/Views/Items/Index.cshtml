@@ -20,7 +20,11 @@
     }
     else
     {
-        <h3>@Html.ActionLink($"{item.Description}", "Details", new {id = item.ItemId}) | @item.Category.Name </h3>
+        <h4>@Html.ActionLink($"{item.Description}", "Details", new {id = item.ItemId}) | @item.Category.Name |
+        @{
+        string itemDueDate = item.DueDate.ToString("MMM-dd-yyyy");
+        }
+        Due date:<b> @Html.DisplayFor(item => itemDueDate) </b></h4>
     }
         
 }

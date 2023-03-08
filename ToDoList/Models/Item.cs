@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Cryptography;
 
 namespace ToDoList.Models
@@ -14,5 +15,9 @@ namespace ToDoList.Models
         public List<ItemTag>? JoinEntities { get; } 
         
         public bool IsDone { get; set; }
+
+        [DataType(DataType.Date)]
+  
+        public DateTime DueDate { get; set; }   
     }
 }

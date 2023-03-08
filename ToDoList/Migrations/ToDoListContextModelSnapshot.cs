@@ -44,6 +44,9 @@ namespace ToDoList.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext");
 
+                    b.Property<bool>("IsDone")
+                        .HasColumnType("tinyint(1)");
+
                     b.HasKey("ItemId");
 
                     b.HasIndex("CategoryId");
@@ -79,7 +82,6 @@ namespace ToDoList.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("TagId");

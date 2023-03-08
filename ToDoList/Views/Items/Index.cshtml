@@ -14,7 +14,14 @@
 
 @foreach(Item item in Model)
 {
-        <h3>@Html.ActionLink($"{item.Description}", "Details", new {id = item.ItemId}) | @item.Category.Name</h3>
+    @if (item.IsDone == true)
+    {
+        <h3> <img src="~/img/checked_input_icon.png" /> @Html.ActionLink($"{item.Description}", "Details", new {id = item.ItemId}) | @item.Category.Name  </h3>
+    }
+    else
+    {
+        <h3>@Html.ActionLink($"{item.Description}", "Details", new {id = item.ItemId}) | @item.Category.Name </h3>
+    }
         
 }
 

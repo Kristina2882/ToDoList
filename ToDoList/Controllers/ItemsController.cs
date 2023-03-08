@@ -19,7 +19,7 @@ namespace ToDoList.Controllers
             _db = db;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(Item item)
         {
             List<Item> model = _db.Items
                 .Include(item => item.Category)
@@ -45,6 +45,7 @@ namespace ToDoList.Controllers
             return RedirectToAction("Index");
         }
 
+        
         public IActionResult Details(int id)
         {
             Item thisItem = _db.Items

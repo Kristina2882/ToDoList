@@ -9,6 +9,7 @@
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 <h4>Category: @Html.DisplayFor(model => model.Category.Name)</h4>
 
+
 @if(Model.JoinEntities.Count == 0)
 {
     <h3>This To-do doesn't have tags</h3>
@@ -28,6 +29,8 @@ else
         
     }
 }
+
+
  
 <hr/>
 <h6>@Html.ActionLink("Edit To-do", "Edit", new {id = Model.ItemId })

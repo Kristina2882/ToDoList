@@ -10,11 +10,14 @@
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.ItemId)
-    @Html.LabelFor(model => model.Description)
+   <h5> @Html.LabelFor(model => model.Description)
     @Html.EditorFor(model => model.Description)
 
     @Html.LabelFor(model => model.Category)
     @Html.DropDownList("CategoryId")
+    Mark as done
+        @Html.CheckBoxFor(model => model.IsDone)
+    </h5>
 
     <input type ="submit" value="Save" />
 

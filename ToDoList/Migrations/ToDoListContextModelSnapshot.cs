@@ -43,6 +43,7 @@ namespace ToDoList.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("DueDate")

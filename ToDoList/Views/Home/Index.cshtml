@@ -1,13 +1,37 @@
 ﻿
-    @{
-        Layout = "_Layout";
-    }
+@{
+    Layout = "_Layout";
+}
+
+@using ToDoList.Models
 
 <h2><b>Welcome and let's make some planning:))</b></h2>
-    <br/>
-<h4>@Html.ActionLink("See all To-dos", "Index", "Items") </h4>
-<h4>@Html.ActionLink("See all categories", "Index", "Categories")</h4>
-<h4>@Html.ActionLink("See all tags", "Index", "Tags")</h4>
+
+<h4>Categories</h4>
+@if (Model["categories"].Length == 0)
+{
+    <h5>There are no any categories yet</h5>
+}
+@foreach (Category category in Model["categories"])
+{
+<h5>@Html.ActionLink(@category.Name, "Details", "Categories", new {id = category.CategoryId})</h5>
+}
+
+<h4>Items</h4>
+@if (Model["items"].Length == 0)
+{
+    <h5>There are no any To-dos yet</h5>
+}
+@foreach (Item item in Model["items"])
+{
+    <h5>@Html.ActionLink(item.Description, "Details", "Items", new {id = item.ItemId})</h5>
+}
+
+
+    <hr/>
+<h6>@Html.ActionLink("Manage To-dos", "Index", "Items") 
+    @Html.ActionLink("Manage categories", "Index", "Categories")
+    @Html.ActionLink("Manage tags", "Index", "Tags")</h6>
 
     
     

@@ -5,8 +5,8 @@
 @model ToDoList.Models.Item
 
 <h4>Add a new To-do</h4>
-
-<p><strong>NOTE:</strong> You need to have at least one category before you can add an item!</p>
+<p>@Html.ValidationMessageFor(model => model.CategoryId, "", new{ @style = "font-weight:600"})</p>
+<p>@Html.ValidationMessageFor(model => model.Description, "", new{ @style = "font-weight:600"}) </p>
 
 @using (Html.BeginForm())
 {

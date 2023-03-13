@@ -3,15 +3,15 @@
 }
 
 @using ToDoList.Models;
-@model List<ToDoList.Models.Item>
 
-<h2><b>To-Dos</b></h2>
+<h2><b>To-Dos for @User.Identity.Name</b></h2>
 
 @if (Model.Count == 0)
 {
     <h3>There are no To-dos in your list yet!</h3>
 }
-
+else
+{
 @foreach(Item item in Model)
 {
     @if (item.IsDone == true)
@@ -20,13 +20,11 @@
     }
     else
     {
-        <h4>@Html.ActionLink($"{item.Description}", "Details", new {id = item.ItemId}) | @item.Category.Name |
-        @{
-        string itemDueDate = item.DueDate.ToString("MMM-dd-yyyy");
-        }
-        Due date:<b> @Html.DisplayFor(item => itemDueDate) </b></h4>
+        <h4>@Html.ActionLink($"{item.Description}", "Details", new {id = item.ItemId}) | @item.Category.Name </h4>
+    
     }
         
+}
 }
 
 <hr/>

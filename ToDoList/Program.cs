@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ToDoList.Models;
 
@@ -15,6 +16,20 @@ builder.Services.AddDbContext<ToDoListContext>(
         )
     );
 
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<ToDoListContext>()
+    .AddDefaultTokenProviders();
+
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 0;
+    options.Password.RequiredUniqueChars = 0;
+});
 
 WebApplication app = builder.Build();
 
@@ -26,10 +41,13 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
+app.UseAuthentication();    
 app.UseAuthorization();
 
 app.MapControllerRoute(

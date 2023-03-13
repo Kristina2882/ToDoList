@@ -16,22 +16,30 @@
 {
 <h5>@Html.ActionLink(@category.Name, "Details", "Categories", new {id = category.CategoryId})</h5>
 }
-
-<h4>Items</h4>
-@if (Model["items"].Length == 0)
+@if (User.Identity.IsAuthenticated)
 {
-    <h5>There are no any To-dos yet</h5>
-}
-@foreach (Item item in Model["items"])
-{
-    <h5>@Html.ActionLink(item.Description, "Details", "Items", new {id = item.ItemId})</h5>
-}
+    <h4>To-dos for @User.Identity.Name</h4>
 
+    @if (Model["items"].Length == 0)
+    {
+        <h5>There are no any To-dos yet</h5>
+    }
+    @foreach (Item item in Model["items"])
+    {
+        <h5>@Html.ActionLink(item.Description, "Details", "Items", new {id = item.ItemId})</h5>
+    }
+}
+else
+{
+    <h4>Please log in to view or manage your to-dos!</h4>
+    <h6>@Html.ActionLink("Log in", "Login", "Account")</h6>
+}
 
     <hr/>
 <h6>@Html.ActionLink("Manage To-dos", "Index", "Items") 
     @Html.ActionLink("Manage categories", "Index", "Categories")
-    @Html.ActionLink("Manage tags", "Index", "Tags")</h6>
+    @Html.ActionLink("Manage tags", "Index", "Tags")
+    @Html.ActionLink("Create or manage an account", "Index", "Account")</h6>
 
     
     

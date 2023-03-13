@@ -21,6 +21,7 @@ namespace ToDoList.Models
 
         [Required]
         [DataType(DataType.Date)]
-        public DateTime DueDate { get; set; }   
+        public DateTime DueDate { get; set; }
+        public ApplicationUser? User { get; set; }
     }
 }
